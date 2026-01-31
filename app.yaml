@@ -1,0 +1,12 @@
+runtime: python311
+entrypoint: python app.py
+
+instance_class: F1
+
+handlers:
+- url: /(.*\.css|.*\.png|.*\.ico|.*\.jpg|.*\.html)
+  static_files: static/\1
+  upload: static/.*
+
+- url: /.*
+  script: auto
